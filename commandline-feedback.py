@@ -2,11 +2,14 @@
 #
 # Echo client program
 import datetime
-import os
 import socket
+import urllib
+import urllib2
+import commands
 
 hostname=socket.gethostname()
-username=os.system("whoami")
+(a,username) = commands.getstatusoutput('whoami')
+#username=os.system("whoami")
 date = datetime.datetime.now()
 
 print "How do you feel after using the system"
@@ -24,4 +27,14 @@ print "username: " + str(username)
 print "date:" + str(date)
 print "evaluation: " + evaluation
 print "feedback: " + feedback
+
+
+def sendPostRequestToServer(username,hostname,date,evaluation,feedback):
     
+    query_args = { 'username':str(username), 'hostname':str(hostname), 'date':str(date), 'evaluation':str(evaluation), 'feedback':str(feedback) }
+    encoded_args = urllib.urlencode(query_args)
+    url = 'http://posttestserver.com/post.php'
+    print urllib2.urlopen(url, encoded_args).read()    
+
+
+sendPostRequestToServer(username,hostname,date,evaluation,feedback)
