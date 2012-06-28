@@ -1,1 +1,5 @@
+Liitu-feedback is prototype application planned to give end-user a possibility for giving quick feedback about the user experience she/he has had.
 
+The current use case is based on the idea where the basic desktop logout screen is replaced with Liitu-feedback. This way user could optionally give feedback after the use. This is pretty much the same use case as customer giving feedback in a sports store after purchase and before leaving the store.
+
+Liitu-feedback is developed using Python (pyQT) and QT designer.
